@@ -6,7 +6,10 @@ import Home from './containers/Home'
 import SpotifyWebApi from 'spotify-web-api-js';
 
 
-const spotifyApi = new SpotifyWebApi();
+// const spotifyApi = new SpotifyWebApi();
+var Spotify = require('spotify-web-api-js');
+// var s = new Spotify();
+var spotifyApi = new SpotifyWebApi();
 
 
 class App extends React.Component {
@@ -15,12 +18,17 @@ class App extends React.Component {
     const params = this.getHashParams()
     if (params.access_token) {
       spotifyApi.setAccessToken(params.access_token);
-      console.log(params.access_token)
     }
     this.state = {
       access_token: params.access_token,
-      loggedIn: params.access_token ? true : false
+      loggedIn: params.access_token ? true : false,
+      user: {}
     };
+  }
+
+  componentDidMount() {
+    spotifyApi.getMe().then(
+      data => this.setState({user: data}))
   }
 
   getHashParams() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from '../components/Navbar';
 
 
 class Home extends React.Component {
@@ -6,7 +7,7 @@ class Home extends React.Component {
     render() {
         return(
             <div>
-                <button>test</button>
+                <Navigation />
             </div>
         )
     }
