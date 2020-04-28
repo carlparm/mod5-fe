@@ -6,30 +6,34 @@ import Home from './containers/Home'
 import SpotifyWebApi from 'spotify-web-api-js';
 
 
-// const spotifyApi = new SpotifyWebApi();
-var Spotify = require('spotify-web-api-js');
-// var s = new Spotify();
+
 var spotifyApi = new SpotifyWebApi();
 
 
 class App extends React.Component {
   constructor() {
     super();
-    const params = this.getHashParams()
-    if (params.access_token) {
-      spotifyApi.setAccessToken(params.access_token);
-    }
+
     this.state = {
-      access_token: params.access_token,
-      loggedIn: params.access_token ? true : false,
+      access_token: '',
+      loggedIn: false,
       user: {}
     };
   }
 
   componentDidMount() {
-    spotifyApi.getMe().then(
-      data => this.setState({user: data}))
+    const params = this.getHashParams()
+    spotifyApi.setAccessToken(params.access_token);
+    spotifyApi.getMe().then(data => this.setState({user: data}, () => 
+      {
+        if (params.access_token) {
+          this.setState({loggedIn: true})
+        }
+      } 
+    ))
   }
+
+
 
   getHashParams() {
     var hashParams = {};
@@ -45,7 +49,7 @@ class App extends React.Component {
   render() {
     return (
     <div className="App">
-      <Route exact path="/" > {this.state.loggedIn ? <Home /> : <Login />} </Route>  
+      {this.state.loggedIn ? <Home user={this.state.user} accessToken={this.state.access_token}/> : <Login />}
     </div>
     );
   }
