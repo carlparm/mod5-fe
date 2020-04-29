@@ -5,15 +5,11 @@ import Login from './components/Login'
 import Home from './containers/Home'
 import SpotifyWebApi from 'spotify-web-api-js';
 
-
-
 var spotifyApi = new SpotifyWebApi();
-
 
 class App extends React.Component {
   constructor() {
     super();
-
     this.state = {
       access_token: '',
       loggedIn: false,
@@ -27,7 +23,7 @@ class App extends React.Component {
     spotifyApi.getMe().then(data => this.setState({user: data}, () => 
       {
         if (params.access_token) {
-          this.setState({loggedIn: true})
+          this.setState({loggedIn: true, access_token: params.access_token})
         }
       } 
     ))

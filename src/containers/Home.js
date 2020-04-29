@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom' // switch
 import Navigation from '../components/Navbar';
 import SpotifyWebApi from 'spotify-web-api-js';
 import ConcertContainer from './ConcertContainer'
+import ArtistContainer from './ArtistContainer'
 
 
 var spotifyApi = new SpotifyWebApi();
@@ -19,7 +20,7 @@ class Home extends React.Component {
         this.state = {
           access_token: params.access_token,
           loggedIn: params.access_token ? true : false,
-          user: {},
+          userBackend: {},
           concerts: []
         };
     }
@@ -38,21 +39,8 @@ class Home extends React.Component {
             },
             body: JSON.stringify(payload)
         }).then(resp => resp.json())
-        .then(user => console.log(user))
+        .then(user => this.setState({userBackend: user}))
     }
-
-    //   componentDidMount() {
-    //     let payload = {'name': this.props.user.display_name, 'spotify_id': this.props.user.id}
-    //     fetch('http://localhost:3000/users', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify(payload)
-    //     }).then(resp => resp.json())
-    //     .then(user => console.log(user))
-    //   }
 
       getHashParams() {
         var hashParams = {};
@@ -68,8 +56,9 @@ class Home extends React.Component {
         return(
             <div>
                 <Navigation accessToken={this.props.accessToken}/>
-                {/* <Route path='/concerts' redner={() => <ConcertContainer concerts={this.state.concerts}/>} /> */}
-                <ConcertContainer concerts={this.state.concerts}/>
+                <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}/>} />
+                <Route  path='/artists/'  render={() => <ArtistContainer />} />
+                {/* <ConcertContainer concerts={this.state.concerts}/> */}
             </div>
         )
     }
