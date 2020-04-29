@@ -8,7 +8,7 @@ const ConcertContainer = (props) => {
 
     const rednerConcerts = () => {
         return props.concerts.map( concert => {
-            return <ConcertCard concert={concert} key={concert.id} />
+            return <ConcertCard concert={concert} key={concert.id} userBackend={props.userBackend}/>
         })      
     }
 

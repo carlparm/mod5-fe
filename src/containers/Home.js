@@ -56,7 +56,7 @@ class Home extends React.Component {
         return(
             <div>
                 <Navigation accessToken={this.props.accessToken}/>
-                <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}/>} />
+                <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}  userBackend={this.state.userBackend}/>} />
                 <Route  path='/artists/'  render={() => <ArtistContainer />} />
                 {/* <ConcertContainer concerts={this.state.concerts}/> */}
             </div>
