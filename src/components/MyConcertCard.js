@@ -8,15 +8,13 @@ const MyConcertCard = (props) => {
 
 
     const deleteFollow = () => {
-        console.log(props)
-        let payload = {user: {'id': props.userBackend.id}, event: {'id': props.concert.id}}
-        fetch('http://localhost:3000/userevents', {
+        props.deleteEvent(props.concert)
+        fetch(`http://localhost:3000/user_events/${props.concert.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"                
             },
-            body: JSON.stringify(payload)
         })
     }
 
@@ -35,7 +33,7 @@ const MyConcertCard = (props) => {
                     <ListGroupItem>When: {props.concert.date} </ListGroupItem>
                     <ListGroupItem>Location: {props.concert.location}</ListGroupItem>
                     <ListGroupItem>
-                        <Button onClick={deleteFollow}>Add to follow list</Button>
+                        <Button onClick={deleteFollow}>Unfollow Event</Button>
                     </ListGroupItem>
                 </ListGroup>
                 <Card.Body>

@@ -5,6 +5,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import ConcertContainer from './ConcertContainer'
 import ArtistContainer from './ArtistContainer'
 import Profile from './Profile'
+import Recommended from './Recommended'
 
 
 var spotifyApi = new SpotifyWebApi();
@@ -25,6 +26,7 @@ class Home extends React.Component {
           userArtists: []
         };
     }
+
     
     componentDidMount() {
         let payload = {user: {'name': this.props.user.display_name, 'spotify_id': this.props.user.id}}
@@ -56,6 +58,16 @@ class Home extends React.Component {
         return hashParams;
     }
 
+    deleteEventFollow = (concert) => {
+        let newEvents = this.state.userConcerts.filter( event => event.id != concert.id)
+        this.setState({userConcerts: newEvents})
+    }
+
+    deleteArtistFollow = (artist) => {
+        let newArtists = this.state.userArtists.filter( artistOld => artistOld.id != artist.id)
+        this.setState({userArtists: newArtists})
+    }
+
     render() {
         return(
             <div>
@@ -64,7 +76,8 @@ class Home extends React.Component {
                     <Switch> 
                         <Route path='/artists/'  render={() => <ArtistContainer accessToken={this.props.accessToken} userBackend={this.state.userBackend}/>} />
                         <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}  userBackend={this.state.userBackend}/>} />
-                        <Route path='/profile/' render={() => <Profile concerts={this.state.userConcerts} artists={this.state.userArtists} userBackend={this.state.userBackend}/>} />
+                        <Route path='/profile/' render={() => <Profile concerts={this.state.userConcerts} artists={this.state.userArtists} userBackend={this.state.userBackend} deleteEvent={this.deleteEventFollow} deleteArtist={this.deleteArtistFollow}/>} />
+                        <Route path='/recommended/' render={() => <Recommended userConcerts={this.state.userConcerts} artists={this.state.userArtists} userBackend={this.state.userBackend} concerts={this.state.concerts}/>} />
                     </Switch>
                 </Router>
             </div>

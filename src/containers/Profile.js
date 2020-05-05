@@ -9,12 +9,12 @@ const Profile = (props) => {
 
     const renderEvents = () => {
         return props.concerts.map(event => {
-            return <MyConcertCard concert={event} key={event.id} user={props.userBackend}/>
+            return <MyConcertCard concert={event} key={event.id} user={props.userBackend} deleteEvent={props.deleteEvent}/>
         })
     }
     const renderArtists = () => {
         return props.artists.map(artist => {
-            return <MyArtistCard artist={artist} key={artist.id} user={props.userBackend}/>
+            return <MyArtistCard artist={artist} key={artist.id} user={props.userBackend} deleteArtist={props.deleteArtist}/>
         })
     }
 

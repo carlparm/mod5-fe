@@ -35,7 +35,7 @@ const ArtistCard = (props) => {
                     <ListGroupItem> <Button onClick={addFollow}>Add to follow list</Button></ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                    <Card.Link href={props.artist.uri} target="_blank">View in Sportify</Card.Link>
+                    <Card.Link href={props.artist.uri} target="_blank">View in Spotify</Card.Link>
                     <Card.Link href={`https://www.google.com/search?q=${props.artist.name.split(' ').join('+')}`}  target="_blank">Google Artist</Card.Link>
                 </Card.Body>
             </Card>

@@ -8,15 +8,13 @@ const MyArtistCard = (props) => {
 
 
     const deleteFollow = () => {
-        console.log(props)
-        let payload = {user: {'id': props.userBackend.id}, artist: {'name': props.artist.name, 'img_url': props.artist.images[0].url, 'genre': props.artist.genres[0], 'popularity': props.artist.popularity, 'spotify_id': props.artist.id, 'spotify_uri': props.artist.uri}}
-        fetch('http://localhost:3000/artists', {
+        props.deleteArtist(props.artist)
+        fetch(`http://localhost:3000/user_artists/${props.artist.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"                
             },
-            body: JSON.stringify(payload)
         })
     }
 
@@ -32,10 +30,10 @@ const MyArtistCard = (props) => {
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem> <Button onClick={deleteFollow}>Add to follow list</Button></ListGroupItem>
+                    <ListGroupItem> <Button onClick={deleteFollow}>Unfollow Artist</Button></ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                    <Card.Link href={props.artist.spotify_uri} target="_blank">View in Sportify</Card.Link>
+                    <Card.Link href={props.artist.spotify_uri} target="_blank">View in Spotify</Card.Link>
                     <Card.Link href={`https://www.google.com/search?q=${props.artist.name.split(' ').join('+')}`}  target="_blank">Google Artist</Card.Link>
                 </Card.Body>
             </Card>
