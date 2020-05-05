@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import {Route} from 'react-router-dom' // switch
 import Login from './components/Login'
 import Home from './containers/Home'
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -28,7 +27,6 @@ class App extends React.Component {
       } 
     ))
   }
-
 
 
   getHashParams() {

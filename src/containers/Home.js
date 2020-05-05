@@ -1,9 +1,10 @@
 import React from 'react';
-import {Route} from 'react-router-dom' // switch
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom' // switch
 import Navigation from '../components/Navbar';
 import SpotifyWebApi from 'spotify-web-api-js';
 import ConcertContainer from './ConcertContainer'
 import ArtistContainer from './ArtistContainer'
+import Profile from './Profile'
 
 
 var spotifyApi = new SpotifyWebApi();
@@ -18,28 +19,31 @@ class Home extends React.Component {
           spotifyApi.setAccessToken(params.access_token);
         }
         this.state = {
-          access_token: params.access_token,
-          loggedIn: params.access_token ? true : false,
           userBackend: {},
-          concerts: []
+          concerts: [],
+          userConcerts: [],
+          userArtists: []
         };
     }
     
     componentDidMount() {
+        let payload = {user: {'name': this.props.user.display_name, 'spotify_id': this.props.user.id}}
+
         fetch('https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=409&apikey=ELQg9rpqGEQFKn7YGMShUbWcqtjTLAB9')
             .then(resp => resp.json())
-            .then(concerts => this.setState({concerts: concerts._embedded.events}))
-        let payload = {user: {'name': this.props.user.display_name, 'spotify_id': this.props.user.id}}
-        console.log(payload)
-        fetch('http://localhost:3000/users', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(payload)
-        }).then(resp => resp.json())
-        .then(user => this.setState({userBackend: user}))
+            .then(concerts => {
+                fetch('http://localhost:3000/users', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(payload)
+            }).then(resp => resp.json())
+            .then(user => {
+                this.setState({concerts: concerts._embedded.events, userBackend: user, userConcerts: user.events, userArtists: user.artists})
+            })
+            })
     }
 
       getHashParams() {
@@ -55,10 +59,14 @@ class Home extends React.Component {
     render() {
         return(
             <div>
-                <Navigation accessToken={this.props.accessToken}/>
-                <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}  userBackend={this.state.userBackend}/>} />
-                <Route  path='/artists/'  render={() => <ArtistContainer />} />
-                {/* <ConcertContainer concerts={this.state.concerts}/> */}
+                <Router>
+                    <Navigation accessToken={this.props.accessToken}/>
+                    <Switch> 
+                        <Route path='/artists/'  render={() => <ArtistContainer accessToken={this.props.accessToken} userBackend={this.state.userBackend}/>} />
+                        <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}  userBackend={this.state.userBackend}/>} />
+                        <Route path='/profile/' render={() => <Profile concerts={this.state.userConcerts} artists={this.state.userArtists} userBackend={this.state.userBackend}/>} />
+                    </Switch>
+                </Router>
             </div>
         )
     }
