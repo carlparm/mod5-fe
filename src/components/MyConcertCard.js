@@ -34,7 +34,7 @@ const MyConcertCard = (props) => {
                     <ListGroupItem>When: {props.concert.date} </ListGroupItem>
                     <ListGroupItem>Location: {props.concert.location}</ListGroupItem>
                     <ListGroupItem>
-                        <Button onClick={deleteFollow}>Unfollow Event</Button>
+                        <button onClick={deleteFollow} className="button">Unfollow Event</button>
                     </ListGroupItem>
                 </ListGroup>
                 <Card.Body>

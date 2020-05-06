@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button'
 import ArtistCard from '../components/ArtistCard'
 import SpotifyWebApi from 'spotify-web-api-js';
 
@@ -44,10 +43,12 @@ class ArtistContainer extends React.Component {
         return(
             <div className='artist-search'>
                 <Container>
+                    <p></p>
                     <form inline onSubmit={this.searchArtists}>
                         <FormControl type="text" placeholder="Find Artists" className="mr-sm-2" value={this.state.searchTerm} onChange={this.setSearchTerm}/>
-                        <input type="submit" value="Submit" className={'artistButton'}/>
+                        {/* <input type="submit" value="Submit" className='button2'/> */}
                     </form>
+                    <p></p>
                     <CardColumns>
                         {this.state.artists ? this.state.artists.map( artist => <ArtistCard artist={artist} key={artist.id}  userBackend={this.props.userBackend}/>) : null}
                     </CardColumns>

@@ -32,7 +32,7 @@ const ArtistCard = (props) => {
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem> <Button onClick={addFollow}>Add to follow list</Button></ListGroupItem>
+                    <ListGroupItem> <button onClick={addFollow} className='button'>Add to follow list</button></ListGroupItem>
                 </ListGroup>
                 <Card.Body>
                     <Card.Link href={props.artist.uri} target="_blank">View in Spotify</Card.Link>

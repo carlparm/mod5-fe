@@ -29,7 +29,7 @@ const RecCard = (props) => {
                     <Card.Text>
                         Location: {props.concert._embedded.venues[0].name}
                     </Card.Text>
-                    <Button onClick={addFollow}>Add to follow list</Button>
+                    <button onClick={addFollow} className='button'>Add to follow list</button>
                 </Card.Body>
             </Card>
         </div>

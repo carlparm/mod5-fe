@@ -34,7 +34,7 @@ const ConcertCard = (props) => {
                     <ListGroupItem>When: {props.concert.dates.start.localDate} </ListGroupItem>
                     <ListGroupItem>Location: {props.concert._embedded.venues[0].name}</ListGroupItem>
                     <ListGroupItem>
-                        <Button onClick={addFollow}>Add to follow list</Button>
+                        <button onClick={addFollow} className='button'>Add to follow list</button>
                     </ListGroupItem>
                 </ListGroup>
                 <Card.Body>

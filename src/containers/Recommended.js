@@ -13,11 +13,6 @@ const Recommended = (props) => {
         if (concert.name.includes(artist)) recommendedEvents.push(concert)
         })
     })
-    // let filteredRecEvents = []
-    // recommendedEvents.forEach(event => {props.userConcerts.forEach(concert => {
-    //     if ()
-    // }
-    // )})
 
 
     const renderRecommended = () => {
@@ -28,9 +23,9 @@ const Recommended = (props) => {
 
 
     return(
-        <div>
+        <main>
             {renderRecommended()}
-        </div>
+        </main>
     )
 }
 
