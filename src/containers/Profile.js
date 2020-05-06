@@ -5,6 +5,7 @@ import MyConcertCard from '../components/MyConcertCard';
 import MyArtistCard from '../components/MyArtistCard'
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tabs';
+import Avatar from '@material-ui/core/Avatar';
 
 const Profile = (props) => {
 
@@ -24,7 +25,8 @@ const Profile = (props) => {
 
         <Fragment>
 
-    <h1>{props.userBackend.name}</h1>
+        {/* <MyProfile /> */}
+        
 
         <Tabs defaultActiveKey="concerts" transition={false} id="noanim-tab-example">
             <Tab eventKey="concerts" title="Concerts">
