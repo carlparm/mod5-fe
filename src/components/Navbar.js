@@ -15,6 +15,7 @@ const header = (props) => {
                     <Nav.Link href={`http://localhost:3001/concerts/#access_token=${props.accessToken}`}>Concerts</Nav.Link>
                     <Nav.Link href={`http://localhost:3001/artists/#access_token=${props.accessToken}`}>Artists</Nav.Link>
                     <Nav.Link href={`http://localhost:3001/profile/#access_token=${props.accessToken}`}>Profile</Nav.Link>
+                    <Nav.Link href={`http://localhost:3001/recommended/#access_token=${props.accessToken}`}>Recommended</Nav.Link>
                     </Nav>
                     <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />

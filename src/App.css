@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.artistSearch {
+  align-items: center;
+}
+
+.artistButton {
+  color: red;
+}
+
+.rec-card {
+    margin: auto;
+    width: 80%;
+    margin: 50px;
+}

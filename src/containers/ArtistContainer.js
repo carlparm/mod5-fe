@@ -42,18 +42,17 @@ class ArtistContainer extends React.Component {
 
     render() {
         return(
-            <Fragment>
+            <div className='artist-search'>
                 <Container>
-                    <Form inline onSubmit={this.searchArtists}>
+                    <form inline onSubmit={this.searchArtists}>
                         <FormControl type="text" placeholder="Find Artists" className="mr-sm-2" value={this.state.searchTerm} onChange={this.setSearchTerm}/>
-                        {/* <Button variant="outline-info" onClick={this.setSearchTerm}>Search</Button> */}
-                        <input type="submit" value="Submit" />
-                    </Form>
+                        <input type="submit" value="Submit" className={'artistButton'}/>
+                    </form>
                     <CardColumns>
                         {this.state.artists ? this.state.artists.map( artist => <ArtistCard artist={artist} key={artist.id}  userBackend={this.props.userBackend}/>) : null}
                     </CardColumns>
                 </Container>
-            </Fragment>
+            </div>
         )
     }
 }

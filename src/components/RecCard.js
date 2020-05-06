@@ -4,8 +4,7 @@ import Button from "react-bootstrap/Button";
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
-const ConcertCard = (props) => {
-
+const RecCard = (props) => {
 
     const addFollow = () => {
         console.log(props)
@@ -20,30 +19,21 @@ const ConcertCard = (props) => {
         })
     }
 
+
     return(
-        <div>
-            <Card style={{ width: '20rem' }}>
-            <Card.Img variant="top" src={props.concert.images[0].url} />
+        <div class='rec-card'>
+            <Card className="text-center">
+                <Card.Header>{props.concert.name}</Card.Header>
                 <Card.Body>
-                    <Card.Title>{props.concert.name}</Card.Title>
+                    <Card.Title>When: {props.concert.dates.start.localDate}</Card.Title>
                     <Card.Text>
-                        {/* Extra info if needed */}
+                        Location: {props.concert._embedded.venues[0].name}
                     </Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                    <ListGroupItem>When: {props.concert.dates.start.localDate} </ListGroupItem>
-                    <ListGroupItem>Location: {props.concert._embedded.venues[0].name}</ListGroupItem>
-                    <ListGroupItem>
-                        <Button onClick={addFollow}>Add to follow list</Button>
-                    </ListGroupItem>
-                </ListGroup>
-                <Card.Body>
-                    <Card.Link href={props.concert.url} target="_blank">Concert Website</Card.Link>
-                    <Card.Link href={`https://www.google.com/maps/search/?api=1&query=${props.concert._embedded.venues[0].name.split(' ').join('+')}`}  target="_blank">View on Map</Card.Link>
+                    <Button onClick={addFollow}>Add to follow list</Button>
                 </Card.Body>
             </Card>
         </div>
     )
 }
 
-export default ConcertCard;
+export default RecCard;
