@@ -8,7 +8,7 @@ const ConcertCard = (props) => {
 
 
     const addFollow = () => {
-        console.log(props)
+        alert('Added concert to follow list')
         let payload = {user: {'id': props.userBackend.id}, event: {'name': props.concert.name, 'img_url': props.concert.images[0].url, 'date': props.concert.dates.start.localDate, 'location': props.concert._embedded.venues[0].name, 'ticketmaster_id': props.concert.id, 'google_key': props.concert._embedded.venues[0].name.split(' ').join('+'), 'url': props.concert.url}}
         fetch('http://localhost:3000/events', {
             method: 'POST',

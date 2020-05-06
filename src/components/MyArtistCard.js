@@ -9,12 +9,14 @@ const MyArtistCard = (props) => {
 
     const deleteFollow = () => {
         props.deleteArtist(props.artist)
+        let payload = {user: {'id': props.user.id}, artist: {'id': props.artist.id}}
         fetch(`http://localhost:3000/user_artists/${props.artist.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"                
             },
+            body: JSON.stringify(payload)
         })
     }
 

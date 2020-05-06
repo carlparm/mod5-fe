@@ -8,7 +8,7 @@ const ArtistCard = (props) => {
 
 
     const addFollow = () => {
-        console.log(props)
+        alert('Added artist to follow list')
         let payload = {user: {'id': props.userBackend.id}, artist: {'name': props.artist.name, 'img_url': props.artist.images[0].url, 'genre': props.artist.genres[0], 'popularity': props.artist.popularity, 'spotify_id': props.artist.id, 'spotify_uri': props.artist.uri}}
         fetch('http://localhost:3000/artists', {
             method: 'POST',
@@ -32,7 +32,7 @@ const ArtistCard = (props) => {
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem> <Button onClick={addFollow} style={{color: 'red'}}>Add to follow list</Button></ListGroupItem>
+                    <ListGroupItem> <Button onClick={addFollow}>Add to follow list</Button></ListGroupItem>
                 </ListGroup>
                 <Card.Body>
                     <Card.Link href={props.artist.uri} target="_blank">View in Spotify</Card.Link>

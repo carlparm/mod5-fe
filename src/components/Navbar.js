@@ -10,7 +10,7 @@ const header = (props) => {
         return(
             <div>
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Navbar.Brand href="#home">ConcertFinader</Navbar.Brand>
                     <Nav className="mr-auto">
                     <Nav.Link href={`http://localhost:3001/concerts/#access_token=${props.accessToken}`}>Concerts</Nav.Link>
                     <Nav.Link href={`http://localhost:3001/artists/#access_token=${props.accessToken}`}>Artists</Nav.Link>

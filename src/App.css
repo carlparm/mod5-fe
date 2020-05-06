@@ -50,3 +50,16 @@
     width: 80%;
     margin: 50px;
 }
+
+.div1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.div2 {
+  width: max-content;
+}

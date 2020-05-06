@@ -13,10 +13,16 @@ const Recommended = (props) => {
         if (concert.name.includes(artist)) recommendedEvents.push(concert)
         })
     })
+    // let filteredRecEvents = []
+    // recommendedEvents.forEach(event => {props.userConcerts.forEach(concert => {
+    //     if ()
+    // }
+    // )})
+
 
     const renderRecommended = () => {
         return recommendedEvents.map( concert => {
-            return <RecCard concert={concert}/>
+            return <RecCard concert={concert} key={concert.id} userBackend={props.userBackend}/>
         })
     }
 

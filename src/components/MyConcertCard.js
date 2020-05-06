@@ -9,18 +9,19 @@ const MyConcertCard = (props) => {
 
     const deleteFollow = () => {
         props.deleteEvent(props.concert)
+        let payload = {user: {'id': props.user.id}, event: {'id': props.concert.id}}
         fetch(`http://localhost:3000/user_events/${props.concert.id}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"                
             },
+            body: JSON.stringify(payload)
         })
     }
 
     return(
         <div>
-            
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={props.concert.img_url} />
                 <Card.Body>
@@ -41,7 +42,6 @@ const MyConcertCard = (props) => {
                     <Card.Link href={`https://www.google.com/maps/search/?api=1&query=${props.concert.google_key}`}  target="_blank">View on Map</Card.Link>
                 </Card.Body>
             </Card>
-
         </div>
     )
 }

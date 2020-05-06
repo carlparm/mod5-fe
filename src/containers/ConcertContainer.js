@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
 import ConcertCard from '../components/ConcertCard'
-// import ConcertSearch from '../components/ConcertSearch'
 
 const ConcertContainer = (props) => {
 
@@ -16,7 +15,6 @@ const ConcertContainer = (props) => {
         <Fragment>
             <Container>
                 <CardColumns>
-                    {/* <ConcertSearch/> */}
                     {rednerConcerts()}
                 </CardColumns>
             </Container>
