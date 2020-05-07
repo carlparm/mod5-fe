@@ -23,7 +23,7 @@ const ArtistCard = (props) => {
     return(
         <div>
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.artist?.images[0]?.url} />
+            <Card.Img variant="top" src={props.artist?.images[0]?.url} style={{width: 286, height: 286, alignSelf: "center"}}/>
                 <Card.Body>
                     <Card.Title>{props.artist.name}</Card.Title>
                     <Card.Text>
@@ -34,9 +34,9 @@ const ArtistCard = (props) => {
                 <ListGroup className="list-group-flush">
                     <ListGroupItem> <button onClick={addFollow} className='button'>Add to follow list</button></ListGroupItem>
                 </ListGroup>
-                <Card.Body>
-                    <Card.Link href={props.artist.uri} target="_blank">View in Spotify</Card.Link>
-                    <Card.Link href={`https://www.google.com/search?q=${props.artist.name.split(' ').join('+')}`}  target="_blank">Google Artist</Card.Link>
+                <Card.Body style={{alignContent: 'center'}}>
+                    <Card.Link href={props.artist.uri} target="_blank" style={{alignContent: 'center'}}>View in Spotify</Card.Link>
+                    <Card.Link href={`https://www.google.com/search?q=${props.artist.name.split(' ').join('+')}`}  target="_blank" style={{alignContent: 'center'}}>Google Artist</Card.Link>
                 </Card.Body>
             </Card>
         </div>

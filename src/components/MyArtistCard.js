@@ -23,7 +23,7 @@ const MyArtistCard = (props) => {
     return(
         <div>
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.artist?.img_url} />
+            <Card.Img variant="top" src={props.artist?.img_url} style={{width: 286, height: 286, alignSelf: "center"}}/>
                 <Card.Body>
                     <Card.Title>{props.artist.name}</Card.Title>
                     <Card.Text>

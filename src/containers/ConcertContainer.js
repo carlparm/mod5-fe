@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import Container from 'react-bootstrap/Container';
 import CardColumns from 'react-bootstrap/CardColumns';
-import ConcertCard from '../components/ConcertCard'
+import ConcertCard from '../components/ConcertCard';
+import CardGroup from 'react-bootstrap/CardDeck';
 
 const ConcertContainer = (props) => {
 

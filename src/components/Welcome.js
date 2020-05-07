@@ -17,7 +17,7 @@ const Welcome = (props) => {
 
 
         return(
-            <div>
+            <div style={{marginTop: 200}}>
                 <h1 className='welcome-header'>Welcome to ConcertFinder, Carl!</h1>
             </div>
         )

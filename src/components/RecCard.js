@@ -22,10 +22,10 @@ const RecCard = (props) => {
 
     return(
         <div>
-            <Card style={{ width: '20rem' }}>
-            <Card.Img variant="top" src={props.concert.images[0].url} />
+            <Card style={{ width: '20rem', height: '32rem'}}>
+            <Card.Img variant="top" src={props.concert.images[0].url} style={{width: "100%", height: "12rem", alignSelf: "center"}}/>
                 <Card.Body>
-                    <Card.Title>{props.concert.name}</Card.Title>
+                    <Card.Title>{props.concert._embedded.attractions[0].name}</Card.Title>
                     <Card.Text>
                         {/* Extra info if needed */}
                     </Card.Text>

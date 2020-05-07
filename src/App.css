@@ -100,8 +100,9 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   border-radius: 12px;
+  vertical-align: center;
 }
 
 .rec-header {
@@ -116,15 +117,15 @@
   vertical-align: center;
 }
 
-/* body {
-  background-image: url('https://static.billboard.com/files/2020/04/concert-crowd-covid-rri-billboard-1548-1586981468-1024x677.jpg');
-  background-size: cover;
-} */
+body {
+  /* background-image: url('https://static.billboard.com/files/2020/04/concert-crowd-covid-rri-billboard-1548-1586981468-1024x677.jpg'); */
+  background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDw0NDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQf/xAAWEAEBAQAAAAAAAAAAAAAAAAAAARH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBAAAAAAAAAAAAAABUAAAFAQAAAAUBBQAAEBQRRAURQQUAABAAFRQEUBBUBUUAQAFRQAAAAAARUUAAAAAAAAAAAAAAAAAAAAAAARQAAAAQAFEUARQAAAAAAAAAAAAAAAAAAAAAAFQBFEBQAEUBFAAAAAAAAAAAAAAAAAAAAAAAEABQABFAAAAAAAAABQQUBBUAABQQAAAAAAEAABQAAEUAAAAAAAABRAFQAAAAAAAAAAAQFAAAEUAAAAAAAAAAAAAAAAAAAAAAAAEVFAAAAAAAAAAAAAAAABUAAAAAAEBRAF0QBQAAAEUAAAAAAAAAAAAAAAAAEAAAAABQARQAAQUAAAAAAAAAEAFQBRAFQAAAAAAAAAFRQAAAAAABAFEAUQAAAAAAAAAAAAAAAAAVAFAAABFAEFAQAAAAAAAAAAAAAAAAAAAAAFAASgCgAQAEoABQAoAAoCAAAAAAAAAAAA//2Q==');
+}
 
 .test {
   /* background-image: url('https://static.billboard.com/files/2020/04/concert-crowd-covid-rri-billboard-1548-1586981468-1024x677.jpg'); */
   /* background-color: lightgrey; */
   background-size: cover;
-  text-align: center;
+  text-align: middle;
   height: 100%;
 }

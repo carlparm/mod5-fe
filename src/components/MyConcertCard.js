@@ -6,6 +6,10 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
 const MyConcertCard = (props) => {
 
+    let string = props.concert.name
+    let length = 30
+    let name = string.substring(0, length)
+
 
     const deleteFollow = () => {
         props.deleteEvent(props.concert)
@@ -22,8 +26,8 @@ const MyConcertCard = (props) => {
 
     return(
         <div>
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.concert.img_url} />
+            <Card style={{ width: '18rem', height: '34rem'}}>
+            <Card.Img variant="top" src={props.concert.img_url} style={{width: "100%", height: "12rem", alignSelf: "center"}}/>
                 <Card.Body>
                     <Card.Title>{props.concert.name}</Card.Title>
                     <Card.Text>
@@ -37,8 +41,8 @@ const MyConcertCard = (props) => {
                         <button onClick={deleteFollow} className="button">Unfollow Event</button>
                     </ListGroupItem>
                 </ListGroup>
-                <Card.Body>
-                    <Card.Link href={props.concert.url} target="_blank">Concert Website</Card.Link>
+                <Card.Body style={{alignItems: "center"}}>
+                    <Card.Link href={props.concert.url} target="_blank" style={{margin: "atuo"}}>Concert Website</Card.Link>
                     <Card.Link href={`https://www.google.com/maps/search/?api=1&query=${props.concert.google_key}`}  target="_blank">View on Map</Card.Link>
                 </Card.Body>
             </Card>
