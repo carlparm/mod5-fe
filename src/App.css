@@ -70,22 +70,61 @@
   background-color:#4682BB; 
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 8px 18px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 12px;
 }
 
 .button2 {
   background-color:#4682BB; 
+  float: right;
   border: none;
   color: white;
-  padding: 10px 24px;
+  padding: 8px 18px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 12px;
+  margin-left: 1px;
+}
+
+.button3 {
+  background-color:#4682BB; 
+  border: none;
+  color: white;
+  padding: 24px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+.rec-header {
+  color:#4682BB;
+  margin-bottom: 15px;
+}
+
+.welcome-header {
+  color: #4682BB;
+  font-size: 4em;
+  text-align: center;
+  vertical-align: center;
+}
+
+/* body {
+  background-image: url('https://static.billboard.com/files/2020/04/concert-crowd-covid-rri-billboard-1548-1586981468-1024x677.jpg');
+  background-size: cover;
+} */
+
+.test {
+  /* background-image: url('https://static.billboard.com/files/2020/04/concert-crowd-covid-rri-billboard-1548-1586981468-1024x677.jpg'); */
+  /* background-color: lightgrey; */
+  background-size: cover;
+  text-align: center;
+  height: 100%;
 }

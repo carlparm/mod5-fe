@@ -23,9 +23,15 @@ const Recommended = (props) => {
 
 
     return(
-        <main>
-            {renderRecommended()}
-        </main>
+        <Fragment>
+            <h1 className="rec-header">Here are some concerts you dont want to miss!</h1>
+            <p></p>
+            <Container>
+                <CardColumns>
+                    {renderRecommended()}
+                </CardColumns>
+            </Container>
+        </Fragment>
     )
 }
 

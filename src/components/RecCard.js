@@ -21,15 +21,25 @@ const RecCard = (props) => {
 
 
     return(
-        <div class='rec-card'>
-            <Card className="text-center">
-                <Card.Header>{props.concert.name}</Card.Header>
+        <div>
+            <Card style={{ width: '20rem' }}>
+            <Card.Img variant="top" src={props.concert.images[0].url} />
                 <Card.Body>
-                    <Card.Title>When: {props.concert.dates.start.localDate}</Card.Title>
+                    <Card.Title>{props.concert.name}</Card.Title>
                     <Card.Text>
-                        Location: {props.concert._embedded.venues[0].name}
+                        {/* Extra info if needed */}
                     </Card.Text>
-                    <button onClick={addFollow} className='button'>Add to follow list</button>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                    <ListGroupItem>When: {props.concert.dates.start.localDate} </ListGroupItem>
+                    <ListGroupItem>Location: {props.concert._embedded.venues[0].name}</ListGroupItem>
+                    <ListGroupItem>
+                        <button onClick={addFollow} className='button'>Add to follow list</button>
+                    </ListGroupItem>
+                </ListGroup>
+                <Card.Body>
+                    <Card.Link href={props.concert.url} target="_blank">Concert Website</Card.Link>
+                    <Card.Link href={`https://www.google.com/maps/search/?api=1&query=${props.concert._embedded.venues[0].name.split(' ').join('+')}`}  target="_blank">View on Map</Card.Link>
                 </Card.Body>
             </Card>
         </div>

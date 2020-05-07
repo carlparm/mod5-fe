@@ -6,6 +6,7 @@ import ConcertContainer from './ConcertContainer'
 import ArtistContainer from './ArtistContainer'
 import Profile from './Profile'
 import Recommended from './Recommended'
+import Welcome from  '../components/Welcome'
 
 
 var spotifyApi = new SpotifyWebApi();
@@ -78,6 +79,7 @@ class Home extends React.Component {
                         <Route path='/concerts/' render={() => <ConcertContainer concerts={this.state.concerts}  userBackend={this.state.userBackend}/>} />
                         <Route path='/profile/' render={() => <Profile concerts={this.state.userConcerts} artists={this.state.userArtists} userBackend={this.state.userBackend} deleteEvent={this.deleteEventFollow} deleteArtist={this.deleteArtistFollow}/>} />
                         <Route path='/recommended/' render={() => <Recommended userConcerts={this.state.userConcerts} artists={this.state.userArtists} userBackend={this.state.userBackend} concerts={this.state.concerts}/>} />
+                        <Route path='/'  render={() => <Welcome />} />
                     </Switch>
                 </Router>
             </div>
