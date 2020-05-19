@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
@@ -21,7 +20,7 @@ const ConcertCard = (props) => {
     }
 
     return(
-        <div>
+        <Fragment>
             <Card style={{ width: '20rem', height: '32rem' }}>
             <Card.Img variant="top" src={props.concert.images[0].url} style={{width: "100%", height: "12rem", alignSelf: "center"}} />
                 <Card.Body>
@@ -36,10 +35,10 @@ const ConcertCard = (props) => {
                 </ListGroup>
                 <Card.Body style={{alignItems: "center"}}>
                     <Card.Link href={props.concert.url} target="_blank" style={{textalign: "center", verticalAlign: "middle", margin: "auto"}}>Concert Website</Card.Link>
-                    <Card.Link href={`https://www.google.com/maps/search/?api=1&query=${props.concert._embedded.venues[0].name.split(' ').join('+')}`}  target="_blank" style={{verticalAlign: "middle", verticalAlign: "middle"}}>View on Map</Card.Link>
+                    <Card.Link href={`https://www.google.com/maps/search/?api=1&query=${props.concert._embedded.venues[0].name.split(' ').join('+')}`}  target="_blank" style={{verticalAlign: "middle"}}>View on Map</Card.Link>
                 </Card.Body>
             </Card>
-        </div>
+        </Fragment>
     )
 }
 
