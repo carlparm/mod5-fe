@@ -1,14 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
 const MyConcertCard = (props) => {
-
-    let string = props.concert.name
-    let length = 30
-    let name = string.substring(0, length)
 
 
     const deleteFollow = () => {
