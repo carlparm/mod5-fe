@@ -70,10 +70,10 @@ class App extends React.Component {
     this.setState({userConcerts: newEvents})
   }
 
-deleteArtistFollow = (artist) => {
-    let newArtists = this.state.userArtists.filter( artistOld => artistOld.id !== artist.id)
-    this.setState({userArtists: newArtists})
-  }
+  deleteArtistFollow = (artist) => {
+      let newArtists = this.state.userArtists.filter( artistOld => artistOld.id !== artist.id)
+      this.setState({userArtists: newArtists})
+    }
 
 
   render() {
