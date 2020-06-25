@@ -7,7 +7,7 @@ class Login extends React.Component {
         return(
                 <div style={{marginTop: 200}}>
                     <h1>Welcome to ConcertFinder</h1>
-                    <a href='http://localhost:8888/'>
+                    <a href='https://master.d2o09wn1c5pdp4.amplifyapp.com/index.html'>
                     <button className='button3'>Please login with Spotify</button>
                     </a>
                 </div>
